@@ -22,8 +22,10 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'solidus_core', '~> 1.1'
-  s.add_dependency 'deface',        '~> 1.0.2'
+  #s.add_dependency 'solidus_core', '~> 1.1'
+  #s.add_dependency 'deface',        '~> 1.0.2'
+  s.add_dependency 'solidus_core'#, '~>  2.11.0'
+  s.add_dependency 'deface',        '~> 1.5.3'
 
   s.add_development_dependency 'capybara', '~> 2.4'
   s.add_development_dependency 'selenium-webdriver'

@@ -9,8 +9,14 @@ module Spree
           next unless variant
           supported_currencies.each do |currency|
             price = variant.price_in(currency.iso_code)
-            price.price = (prices[currency.iso_code].blank? ? nil : prices[currency.iso_code].to_money)
-            price.save! if price.new_record? && price.price || !price.new_record? && price.changed?
+            if price.present?
+              price.price = (prices[currency.iso_code].blank? ? nil : prices[currency.iso_code].to_money)
+            #debugger
+              price.save! if price.new_record? && price.price || !price.new_record? && price.changed?
+            elsif(prices[currency.iso_code].to_money.present?)
+                vari = variant.prices.new(amount: prices[currency.iso_code].to_money, currency: currency.iso_code)
+                vari.save!
+            end
           end
         end
         flash[:success] = Spree.t('notice.prices_saved')

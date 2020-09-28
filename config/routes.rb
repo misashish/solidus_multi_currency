@@ -1,4 +1,5 @@
-Spree::Core::Engine.add_routes do
+#Spree::Core::Engine.add_routes do
+Spree::Core::Engine.routes.draw do
   post '/currency/set', to: 'currency#set', defaults: { format: :json }, as: :set_currency
 
   namespace :admin do
@@ -7,3 +8,4 @@ Spree::Core::Engine.add_routes do
     end
   end
 end
+

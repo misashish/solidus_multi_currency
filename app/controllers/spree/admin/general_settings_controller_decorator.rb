@@ -1,7 +1,7 @@
 module Spree
   module Admin
     GeneralSettingsController.class_eval do
-      before_filter :update_currency_settings, only: :update
+      before_action :update_currency_settings, only: :update
 
       def render(*args)
         @preferences_currency |= [:allow_currency_change, :show_currency_selector, :supported_currencies]
