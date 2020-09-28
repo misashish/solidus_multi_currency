@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.test_files   = `git ls-files -- spec/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
-
   #s.add_dependency 'solidus_core', '~> 1.1'
   #s.add_dependency 'deface',        '~> 1.0.2'
   s.add_dependency 'solidus_core'#, '~>  2.11.0'
